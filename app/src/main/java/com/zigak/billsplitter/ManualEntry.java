@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -117,7 +118,7 @@ public class ManualEntry extends AppCompatActivity {
             public void onClick(View view) {
                 if (validateParams()) {
                     String[] qrData = {
-                            "",
+                            "UPNQR",
                             "",
                             "",
                             "",
@@ -135,14 +136,14 @@ public class ManualEntry extends AppCompatActivity {
                             referenceText.getText().toString(),
                             nameText.getText().toString(),
                             addressText.getText().toString(),
-                            placeText.getText().toString()
+                            placeText.getText().toString(),
+                            "204"
                     };
-
 
                     String splitQrData = "";
 
                     for (String UPNValue : qrData) {
-                        splitQrData += UPNValue + '\n';
+                        splitQrData += UPNValue.trim() + '\n';
                     }
 
                     final QRGEncoder qrgEncoder = new QRGEncoder(
@@ -151,6 +152,8 @@ public class ManualEntry extends AppCompatActivity {
                             QRGContents.Type.TEXT,
                             500
                     );
+
+                    Log.d("splitData", splitQrData);
 
                     try {
                         qrCodeView = new ImageView(ManualEntry.this);

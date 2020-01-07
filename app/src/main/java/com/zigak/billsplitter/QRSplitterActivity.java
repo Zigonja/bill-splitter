@@ -1,11 +1,15 @@
 package com.zigak.billsplitter;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.StrictMode;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -84,7 +88,7 @@ public class QRSplitterActivity extends AppCompatActivity {
                 String splitQrData = "";
 
                 for (String UPNValue : UPNValues) {
-                    splitQrData += UPNValue + '\n';
+                    splitQrData += UPNValue.trim() + '\n';
                 }
 
                 QRGEncoder qrgEncoder = new QRGEncoder(
@@ -153,7 +157,7 @@ public class QRSplitterActivity extends AppCompatActivity {
         String splitQrData = "";
 
         for (String UPNValue : UPNValues) {
-            splitQrData += UPNValue + '\n';
+            splitQrData += UPNValue.trim() + '\n';
         }
 
         QRGEncoder qrgEncoder = new QRGEncoder(
@@ -198,40 +202,55 @@ public class QRSplitterActivity extends AppCompatActivity {
 
                     return;
                 }
-                final File dir =
-                    new File(Environment.getExternalStorageDirectory(), "qrCodeSplitter");
 
-                if (!dir.exists()) {
-                    dir.mkdirs();
-                }
+                if (ContextCompat.checkSelfPermission(QRSplitterActivity.this,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
 
-                final File img = new File(dir, System.currentTimeMillis() + ".png");
 
-                if (img.exists()) {
-                    img.delete();
-                }
+                        ActivityCompat.requestPermissions(QRSplitterActivity.this,
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                0);
 
-                try {
-                    final OutputStream outStream = new FileOutputStream(img);
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
-                    outStream.flush();
-                    outStream.close();
+                        ActivityCompat.requestPermissions(QRSplitterActivity.this,
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                            0);
+                } else {
+                    final File dir =
+                            new File(Environment.getExternalStorageDirectory(), "qrCodeSplitter");
 
-                    Intent share = new Intent(Intent.ACTION_SEND);
-                    share.setType("image/*");
-                    share.putExtra(
-                            Intent.EXTRA_STREAM,
-                            Uri.fromFile(img)
-                    );
-                    startActivity(Intent.createChooser(share, "Deli kodo"));
-                } catch (Throwable throwable) {
-                    throwable.printStackTrace();
+                    if (!dir.exists()) {
+                        dir.mkdirs();
+                    }
 
-                    Toast.makeText(
-                        QRSplitterActivity.this,
-                        "Nekaj je šlo narobe",
-                        Toast.LENGTH_SHORT
-                    ).show();
+                    final File img = new File(dir, System.currentTimeMillis() + ".png");
+
+                    if (img.exists()) {
+                        img.delete();
+                    }
+
+                    try {
+                        final OutputStream outStream = new FileOutputStream(img);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
+                        outStream.flush();
+                        outStream.close();
+
+                        Intent share = new Intent(Intent.ACTION_SEND);
+                        share.setType("image/*");
+                        share.putExtra(
+                                Intent.EXTRA_STREAM,
+                                Uri.fromFile(img)
+                        );
+                        startActivity(Intent.createChooser(share, "Deli kodo"));
+                    } catch (Throwable throwable) {
+                        throwable.printStackTrace();
+
+                        Toast.makeText(
+                                QRSplitterActivity.this,
+                                "Nekaj je šlo narobe",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
                 }
             }
         });
