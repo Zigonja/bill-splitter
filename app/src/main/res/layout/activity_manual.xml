@@ -28,34 +28,6 @@
         android:paddingTop="10sp"
         android:paddingBottom="10sp">
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Št. plačnikov:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/splitNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@android:color/white"
-            android:ems="6"
-            android:inputType="numberSigned"
-            android:maxLength="2"
-            android:textAlignment="viewEnd"
-            android:textColor="@android:color/white"
-            android:textColorHighlight="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textColorLink="@android:color/white"
-            android:textSize="16sp"
-            tools:text="1" />
-
         <ImageView
             android:id="@+id/shareButton"
             android:layout_width="wrap_content"
@@ -90,17 +62,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:gravity="center_vertical"
                     android:text="Koda namena"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/purposeCode"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/white"
+                    android:paddingLeft="10sp"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
-                    android:paddingLeft="10sp"/>
+                    android:textColorHint="@android:color/white" />
             </LinearLayout>
 
             <LinearLayout
@@ -117,15 +93,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:gravity="center_vertical"
                     android:text="Namen plačila"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/purposePayment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/white"
                     android:layout_weight="1"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:paddingLeft="10sp"/>
             </LinearLayout>
@@ -143,15 +122,18 @@
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_weight="2"
                     android:text="Rok plačila"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/dueDate"
+                    android:singleLine="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/white"
                     android:layout_weight="1"
                     android:textColor="@android:color/white"
                     android:paddingLeft="10sp"/>
@@ -171,15 +153,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:gravity="center_vertical"
                     android:text="IBAN prejemnika"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/IBAN"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:singleLine="true"
                     android:layout_weight="1"
+                    android:backgroundTint="@android:color/white"
                     android:textColor="@android:color/white"
                     android:paddingLeft="10sp"/>
             </LinearLayout>
@@ -198,14 +183,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:gravity="center_vertical"
                     android:text="Ref. prejemnika"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/reference"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:singleLine="true"
+                    android:backgroundTint="@android:color/white"
                     android:layout_weight="1"
                     android:textColor="@android:color/white"
                     android:paddingLeft="10sp"/>
@@ -225,14 +213,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:gravity="center_vertical"
                     android:text="Ime prejemnika"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/name"
                     android:layout_width="match_parent"
+                    android:backgroundTint="@android:color/white"
                     android:layout_height="match_parent"
+                    android:singleLine="true"
                     android:layout_weight="1"
                     android:textColor="@android:color/white"
                     android:paddingLeft="10sp"/>
@@ -251,14 +242,17 @@
                     android:id="@+id/textView9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_weight="2"
                     android:text="Ulica in št."
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/addressAndNumber"
+                    android:backgroundTint="@android:color/white"
                     android:layout_width="match_parent"
+                    android:singleLine="true"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:textColor="@android:color/white"
@@ -279,14 +273,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:gravity="center_vertical"
                     android:text="Kraj prejemnika"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/place"
+                    android:backgroundTint="@android:color/white"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:singleLine="true"
                     android:layout_weight="1"
                     android:textColor="@android:color/white"
                     android:paddingLeft="10sp"/>
@@ -307,12 +304,15 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:text="Znesek"
+                    android:gravity="center_vertical"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/amount"
+                    android:backgroundTint="@android:color/white"
                     android:layout_width="match_parent"
+                    android:singleLine="true"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:textColor="@android:color/white"
@@ -322,5 +322,15 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/generateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_weight="2"
+        android:background="@drawable/button_drawable"
+        android:text="Generiraj QR"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

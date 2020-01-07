@@ -4,21 +4,18 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.barcode.Barcode;
 import com.notbytes.barcode_reader.BarcodeReaderActivity;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONStringer;
-
-
 public class MainActivity extends AppCompatActivity {
     private static final int BARCODE_READER_ACTIVITY_REQUEST = 10;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +25,15 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout qrCodeButton      = findViewById(R.id.qrCodeButton);
         LinearLayout manualEntryButton = findViewById(R.id.manualEntryButton);
 
-        qrCodeButton.setOnClickListener(new View.OnClickListener() {
+        manualEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View view) {
+                Intent launchIntent = new Intent(MainActivity.this, ManualEntry.class);
+                startActivity(launchIntent);
+            }
+        });
+
+        qrCodeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent launchIntent = BarcodeReaderActivity
                         .getLaunchIntent(MainActivity.this, true, false);
