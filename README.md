@@ -1,6 +1,6 @@
 # bill-splitter
 
-##UPNQR
+## UPNQR
 This is an Android App that is designed to read, modify and create 
 **UPNQR Codes** for Slovenian bills and banks.
 
@@ -42,7 +42,6 @@ if (requestCode == BARCODE_READER_ACTIVITY_REQUEST && data != null) {
             qrCodeSplitterIntent.putExtra("qrData", qrCode.rawValue);
 
             startActivity(qrCodeSplitterIntent);
-        }
 ```
 
 ### Slitting a custom UPNQR Code
