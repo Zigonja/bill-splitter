@@ -23,7 +23,7 @@ I used a library [barcode-reader](https://github.com/avaneeshkumarmaurya/Barcode
 `
 Here is a code snippet of reading the UPNQR Code:
 
-``Java
+```Java
 qrCodeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent launchIntent = BarcodeReaderActivity
