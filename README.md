@@ -8,8 +8,6 @@ This is an Android App that is designed to read, modify and create
 Read more about [Slovenian UPNQR Specification](https://www.upn-qr.si/uploads/files/NavodilaZaProgramerjeUPNQR.pdf)
 Or more about [UPNQR Overall](https://www.upn-qr.si/)
 
----
-
 ## App Specification
 The application consists of **three** activities, one main and two sub activities, it uses a green-ish color theme.
 The main activity is actually a navigational activity, that with a click of the butto redirects us
