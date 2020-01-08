@@ -1,4 +1,5 @@
 # bill-splitter
+School Project for EMP 2019/2020 - Žiga Klemenčič (63170145)
 
 ## UPNQR
 This is an Android App that is designed to read, modify and create 
